@@ -32,8 +32,12 @@ wget -qO- http://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz | tar xvz -C da
 ## Example
 
 **Input with real images**
+
+
 <img src="https://i.imgur.com/BrtvDmt.png" width="500">
 
 **Output generated with 25 epochs**
+
+
 <img src="https://i.imgur.com/vbOhdSo.png" width="500">
 
