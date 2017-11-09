@@ -29,6 +29,12 @@ Downloading dataset
 wget -qO- http://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz | tar xvz -C data/
 ```
 
+## Start 
+
+```bash
+python gan.py
+```
+
 ## Example
 
 **Input with real images**
