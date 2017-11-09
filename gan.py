@@ -24,9 +24,9 @@ def weights_init(m):
         m.bias.data.fill_(0)
 
 print("""\n\tA simple example of a:
-\t+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+
-\t|G|e|n|e|r|a|t|i|v|e| |A|d|v|e|r|s|a|r|i|a|l| |N|e|t|w|o|r|k|s|
-\t+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+
+\t+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+
+\t|G|e|n|e|r|a|t|i|v|e| |A|d|v|e|r|s|a|r|i|a|l| |N|e|t|w|o|r|k|
+\t+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+
 \tCode created by Davidson Mizael based on the course:
 \t'Computer Vision A-Z' 
 \thttps://www.udemy.com/computer-vision-a-z""")
@@ -60,7 +60,7 @@ optimizerG = optim.Adam(netG.parameters(), lr = 0.0002, betas = (0.5, 0.999))
 
 epochs = 25
 for epoch in range(epochs):
-    print("# Starting epoch [%d/%d]...")
+    print("# Starting epoch [%d/%d]..." % (epoch, epochs))
     for i, data in enumerate(dataloader, 0):
         start = time.time()
         time.clock()  
