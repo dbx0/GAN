@@ -59,6 +59,8 @@ optimizerD = optim.Adam(netD.parameters(), lr = 0.0002, betas = (0.5, 0.999))
 optimizerG = optim.Adam(netG.parameters(), lr = 0.0002, betas = (0.5, 0.999))
 
 epochs = 25
+
+timeElapsed = []
 for epoch in range(epochs):
     print("# Starting epoch [%d/%d]..." % (epoch, epochs))
     for i, data in enumerate(dataloader, 0):
@@ -103,9 +105,10 @@ for epoch in range(epochs):
             print("# Progress: ")
             print("[%d/%d][%d/%d] Loss_D: %.4f Loss_G: %.4f" % (epoch, epochs, i, len(dataloader), errD.data[0], errG.data[0]))
             
-            #calculates the remaining time by taking the seconds that this loop took
+            #calculates the remaining time by taking the avg seconds that every loop
             #and multiplying by the loops that still need to run
-            remaining = ((time.time() - start) * (len(dataloader) - i)) * (epochs - epoch)
+            timeElapsed.append(time.time() - start)
+            remaining = (sum(timeElapsed) / float(len(timeElapsed))) * (len(dataloader) - i) * (epochs - epoch)
             print("# Estimated remaining time: %s" % (time.strftime("%H:%M:%S", time.gmtime(remaining))))
         
         if i % 100 == 0:
