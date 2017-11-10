@@ -108,7 +108,10 @@ for epoch in range(epochs):
             #calculates the remaining time by taking the avg seconds that every loop
             #and multiplying by the loops that still need to run
             timeElapsed.append(time.time() - start)
-            remaining = (sum(timeElapsed) / float(len(timeElapsed))) * (len(dataloader) - i) * (epochs - epoch)
+            avg_time = (sum(timeElapsed) / float(len(timeElapsed)))
+            all_dtl = (epoch * len(dataloader)) + i
+            rem_dtl = (len(dataloader) - i) + ((epochs - epoch) * len(dataloader))
+            remaining =  (all_dtl - rem_dtl) * avg_time
             print("# Estimated remaining time: %s" % (time.strftime("%H:%M:%S", time.gmtime(remaining))))
         
         if i % 100 == 0:
